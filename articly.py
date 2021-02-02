@@ -9,7 +9,7 @@ from nltk import sent_tokenize
 class Articly:
     def __init__(self):
         pass
-    def specify(self,user_input,url,senter = 2):
+    def specify(self,user_input,url,amount_of_sentences = 2):
         article = Article(url)
         article.download()
         article.parse()
@@ -29,7 +29,7 @@ class Articly:
             sent_count = 0
 
             for i in range(len(sims_list)):
-                if sent_count > senter:
+                if sent_count > amount_of_sentences:
                     break
                 if i != len(sims_list - 1):
                     if sims_list[i] > 0.0:
